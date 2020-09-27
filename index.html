@@ -32,55 +32,55 @@
 
       <div class="row">
         <div class="col-2">9 am</div>
-        <div class="col-9" style= "background-color: lightgrey; border-color: lightseagreen;">        </div>
+        <div id="planner" class="col-9" style= "background-color: lightgrey; border-color: lightseagreen;">        </div>
         <div class="col-1"><button type="button" class="btn btn-primary">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">10 am</div>
-        <div class="col-9">        </div>
+        <div id="planner" class="col-9">        </div>
         <div class="col-1"><button type="button" class="btn btn-primary">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">11 am</div>
-        <div class="col-9">        </div>
+        <div id="planner" class="col-9">        </div>
         <div class="col-1"><button type="button" class="btn btn-primary">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">12 pm</div>
-        <div class="col-9">        </div>
+        <div id="planner" class="col-9">        </div>
         <div class="col-1"><button type="button" class="btn btn-primary">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">1 pm</div>
-        <div class="col-9">        </div>
+        <div id="planner" class="col-9">        </div>
         <div class="col-1"><button type="button" class="btn btn-primary">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">2 pm</div>
-        <div class="col-9">        </div>
+        <div id="planner" class="col-9">        </div>
         <div class="col-1"><button type="button" class="btn btn-primary">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">3 pm</div>
-        <div class="col-9">        </div>
+        <div id="planner" class="col-9">        </div>
         <div class="col-1"><button type="button" class="btn btn-primary">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">4 pm</div>
-        <div class="col-9">        </div>
+        <div id="planner" class="col-9">        </div>
         <div class="col-1"><button type="button" class="btn btn-primary">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">5 pm</div>
-        <div class="col-9">        </div>
+        <div id="planner" class="col-9">        </div>
         <div class="col-1"><button type="button" class="btn btn-primary">Save</button></div> 
       </div>
 
@@ -98,11 +98,28 @@
       
       var date = moment().format('MMMM Do YYYY')
         
+// Display current date on top of scheduler
 
-      function test() {
+      function todaysDate() {
            document.getElementById("currentDay").innerHTML = date;
       }
-      test()
+      todaysDate()
+
+// Set background-colors based on past, present, or future hours
+
+      function hourColor(){
+        if (hour past){
+          document.querySelectorAll("planner").style.backgroundColor = "grey"
+        }
+        else if (hour now){
+          document.querySelectorAll("planner").style.backgroundColor = "red"
+        }
+        else{
+          document.querySelectorAll("planner").style.backgroundColor = "green"
+        }
+      }
+      
+      hourColor()
 
 
     </script>
