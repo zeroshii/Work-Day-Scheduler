@@ -95,7 +95,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.0/moment.min.js"></script>
     <script>
-      
+      var x = moment()
       var date = moment().format('MMMM Do YYYY')
         
 // Display current date on top of scheduler
@@ -105,17 +105,30 @@
       }
       todaysDate()
 
-// Set background-colors based on past, present, or future hours
+// Create array for 9-5 moment js
+
+var timeOfDay = ['9 am','10 am','11 am','12 pm','1 pm','2 pm','3 pm','4 pm' ,'5 pm'];
+
+function checkTime(){
+  for (var i = 0; i < timeOfDay.length; i++){
+
+  }
+}
+
+// Set CSS class based on past, present, or future hours
+
+      var y = document.querySelectorAll("planner").addClass(".past")
 
       function hourColor(){
-        if (hour past){
-          document.querySelectorAll("planner").style.backgroundColor = "grey"
+        if (moment().isBefore){
+
+          document.querySelectorAll("planner").addClass(".past")
         }
-        else if (hour now){
-          document.querySelectorAll("planner").style.backgroundColor = "red"
+        else if (moment().isAfter){
+          document.querySelectorAll("planner").addClass(".future")
         }
         else{
-          document.querySelectorAll("planner").style.backgroundColor = "green"
+          document.querySelectorAll("planner").addClass(".present")
         }
       }
       
