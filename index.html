@@ -29,10 +29,27 @@
       <p id="currentDay" class="lead"></p>
     </header>
     <div class="container">
-      <!-- Timeblocks go here -->
-    </div>
+    
+
+ 
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.0/moment.min.js"></script>
+    <script>
+      
+      var date = moment().format('MMMM Do YYYY')
+        
+
+      function test() {
+           document.getElementById("currentDay").innerHTML = date;
+      }
+      test()
+
+
+    </script>
+   
+    
   </body>
 </html>
