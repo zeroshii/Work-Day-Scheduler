@@ -32,55 +32,55 @@
 
       <div class="row">
         <div class="col-2">9 am</div>
-        <div id="planner" class="col-9" style= "background-color: lightgrey; border-color: lightseagreen;">        </div>
+        <textarea id="planner-9" class="col-9"></textarea>
         <div class="col-1"><button type="button" class="btn btn-primary">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">10 am</div>
-        <div id="planner" class="col-9">        </div>
+        <textarea id="planner-10" class="col-9"></textarea>
         <div class="col-1"><button type="button" class="btn btn-primary">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">11 am</div>
-        <div id="planner" class="col-9">        </div>
+        <textarea id="planner-11" class="col-9"></textarea>
         <div class="col-1"><button type="button" class="btn btn-primary">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">12 pm</div>
-        <div id="planner" class="col-9">        </div>
+        <textarea id="planner-12" class="col-9"></textarea>
         <div class="col-1"><button type="button" class="btn btn-primary">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">1 pm</div>
-        <div id="planner" class="col-9">        </div>
+        <textarea id="planner-13" class="col-9"></textarea>
         <div class="col-1"><button type="button" class="btn btn-primary">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">2 pm</div>
-        <div id="planner" class="col-9">        </div>
+        <textarea id="planner-14" class="col-9"></textarea>
         <div class="col-1"><button type="button" class="btn btn-primary">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">3 pm</div>
-        <div id="planner" class="col-9">        </div>
+        <textarea id="planner-15" class="col-9"></textarea>
         <div class="col-1"><button type="button" class="btn btn-primary">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">4 pm</div>
-        <div id="planner" class="col-9">        </div>
+        <textarea id="planner-16" class="col-9"></textarea>
         <div class="col-1"><button type="button" class="btn btn-primary">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">5 pm</div>
-        <div id="planner" class="col-9">        </div>
+        <textarea id="planner-17" class="col-9"></textarea>
         <div class="col-1"><button type="button" class="btn btn-primary">Save</button></div> 
       </div>
 
@@ -107,33 +107,27 @@
 
 // Create array for 9-5 moment js
 
-var timeOfDay = ['9 am','10 am','11 am','12 pm','1 pm','2 pm','3 pm','4 pm' ,'5 pm'];
+var timeOfDay = [9,10,11,12,13,14,15,16,17];
+var currentHour = moment().format('H');
 
 function checkTime(){
   for (var i = 0; i < timeOfDay.length; i++){
+    if (timeOfDay[i] < currentHour){
+        document.querySelector(`#planner-${timeOfDay[i]}`).classList.add("past")
+    }
+    else if (timeOfDay[i] > currentHour){
+        document.querySelector(`#planner-${timeOfDay[i]}`).classList.add("future")
+    }
+    else {
+        document.querySelector(`#planner-${timeOfDay[i]}`).classList.add("present")
+    }
 
   }
 }
 
+checkTime()
+
 // Set CSS class based on past, present, or future hours
-
-      var y = document.querySelectorAll("planner").addClass(".past")
-
-      function hourColor(){
-        if (moment().isBefore){
-
-          document.querySelectorAll("planner").addClass(".past")
-        }
-        else if (moment().isAfter){
-          document.querySelectorAll("planner").addClass(".future")
-        }
-        else{
-          document.querySelectorAll("planner").addClass(".present")
-        }
-      }
-      
-      hourColor()
-
 
     </script>
    
