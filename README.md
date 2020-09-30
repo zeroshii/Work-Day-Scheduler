@@ -2,7 +2,9 @@
 This is a work day scheduling application that saves user input (i.e. events, To-Dos, notes) into local storage. The saved data will persist to display in their respective textareas upon browser page refresh.
 
 The link to the deployed application:
-```https://zeroshii.github.io/Work-Day-Scheduler/```
+```
+https://zeroshii.github.io/Work-Day-Scheduler/
+```
 
 ## Components
 
@@ -16,7 +18,7 @@ Standard business hours are presented in timeblocks and are color coded to indic
 
 All relevant documentation scripts for Bootstrap and Moment.js have been included in the HTML file `index.html`. After declaring a variable for `moment()`, the current date is formatted using `moment().format('MMM Do YYY')` as per example. It is then displayed by calling a function that uses a javascript query. 
 
-Under a `&lt;div class="container"&gt;` , a table of rows for each timeblock is created using Bootstrap's grid system. Each row consists of three columns: one for labelling the hour of the day, one for textarea, and one for a save button. Each button and textarea element is given a unique `id`. 
+Under a `<div class="container">` , a table of rows for each timeblock is created using Bootstrap's grid system. Each row consists of three columns: one for labelling the hour of the day, one for textarea, and one for a save button. Each button and textarea element is given a unique `id`. 
 
 A function `checkTime()` compares all timeblocks to the `moment().format('H')` current hour using a `for loop` to give each a color code CSS class.
 
