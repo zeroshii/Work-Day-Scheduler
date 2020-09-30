@@ -33,55 +33,55 @@
       <div class="row">
         <div class="col-2">9 am</div>
         <textarea id="planner-9" class="col-9"></textarea>
-        <div class="col-1"><button id="button-9" type="button" onclick="saveText(this);" class="saveBtn">Save</button></div> 
+        <div class="col-1"><button id="button-9" type="button" onclick="saveText(this);" class="saveBtn"><i class="fas fa-save"></i></button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">10 am</div>
         <textarea id="planner-10" class="col-9"></textarea>
-        <div class="col-1"><button id="button-10"type="button" onclick="saveText(this);" class="saveBtn">Save</button></div> 
+        <div class="col-1"><button id="button-10" type="button" onclick="saveText(this);" class="saveBtn"><i class="fas fa-save"></i></button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">11 am</div>
         <textarea id="planner-11" class="col-9"></textarea>
-        <div class="col-1"><button id="button-11" type="button" onclick="saveText();" class="saveBtn">Save</button></div> 
+        <div class="col-1"><button id="button-11" type="button" onclick="saveText(this);" class="saveBtn"><i class="fas fa-save"></i></button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">12 pm</div>
         <textarea id="planner-12" class="col-9"></textarea>
-        <div class="col-1"><button id="button-12" type="button" onclick="saveText();" class="saveBtn">Save</button></div> 
+        <div class="col-1"><button id="button-12" type="button" onclick="saveText(this);" class="saveBtn"><i class="fas fa-save"></i></button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">1 pm</div>
         <textarea id="planner-13" class="col-9"></textarea>
-        <div class="col-1"><button id="button-13" type="button" onclick="saveText();" class="saveBtn">Save</button></div> 
+        <div class="col-1"><button id="button-13" type="button" onclick="saveText(this);" class="saveBtn"><i class="fas fa-save"></i></button></div>
       </div>
 
       <div class="row">
         <div class="col-2">2 pm</div>
         <textarea id="planner-14" class="col-9"></textarea>
-        <div class="col-1"><button id="button-14" type="button" onclick="saveText();" class="saveBtn">Save</button></div> 
+        <div class="col-1"><button id="button-14" type="button" onclick="saveText(this);" class="saveBtn"><i class="fas fa-save"></i></button></div>
       </div>
 
       <div class="row">
         <div class="col-2">3 pm</div>
         <textarea id="planner-15" class="col-9"></textarea>
-        <div class="col-1"><button id="button-15" type="button" onclick="saveText();" class="saveBtn">Save</button></div> 
+        <div class="col-1"><button id="button-15" type="button" onclick="saveText(this);" class="saveBtn"><i class="fas fa-save"></i></button></div>
       </div>
 
       <div class="row">
         <div class="col-2">4 pm</div>
         <textarea id="planner-16" class="col-9"></textarea>
-        <div class="col-1"><button id="button-16" type="button" onclick="saveText();" class="saveBtn">Save</button></div> 
+        <div class="col-1"><button id="button-16" type="button" onclick="saveText(this);" class="saveBtn"><i class="fas fa-save"></i></button></div>
       </div>
 
       <div class="row">
         <div class="col-2">5 pm</div>
         <textarea id="planner-17" class="col-9"></textarea>
-        <div class="col-1"><button id="button-17" type="button" onclick="saveText();" class="saveBtn">Save</button></div> 
+        <div class="col-1"><button id="button-17" type="button" onclick="saveText(this);" class="saveBtn"><i class="fas fa-save"></i></button></div>
       </div>
 
 
@@ -100,59 +100,52 @@
 // Display current date on top of scheduler
 
       function todaysDate() {
-           document.getElementById("currentDay").innerHTML = date;
+           document.getElementById("currentDay").innerHTML = date
       }
       todaysDate()
 
 // Set textarea CSS class based on past, present, or future hours
 
-var timeOfDay = [9,10,11,12,13,14,15,16,17]
-var currentHour = moment().format('H')
+      var timeOfDay = [9,10,11,12,13,14,15,16,17]
+      var currentHour = moment().format('H')
 
-function checkTime(){
-  for (var i = 0; i < timeOfDay.length; i++){
-    if (timeOfDay[i] < currentHour){
-        document.querySelector(`#planner-${timeOfDay[i]}`).classList.add("past")
-    }
-    else if (timeOfDay[i] > currentHour){
-        document.querySelector(`#planner-${timeOfDay[i]}`).classList.add("future")
-    }
-    else {
-        document.querySelector(`#planner-${timeOfDay[i]}`).classList.add("present")
-    }
-  }
-}
-checkTime()
+      function checkTime(){
+        for (var i = 0; i < timeOfDay.length; i++){
+          if (timeOfDay[i] < currentHour){
+              document.querySelector(`#planner-${timeOfDay[i]}`).classList.add("past")
+          }
+          else if (timeOfDay[i] > currentHour){
+              document.querySelector(`#planner-${timeOfDay[i]}`).classList.add("future")
+          }
+          else {
+              document.querySelector(`#planner-${timeOfDay[i]}`).classList.add("present")
+          }
+        }
+      }
+      checkTime()
 
 // Save text to local storage
 
-  function saveText(btnElement){
+      function saveText(btnElement){
 
-    var num = btnElement.id.split("-")[1]
-    var text = document.querySelector(`#planner-${num}`).value;
-    
-    localStorage.setItem(`#planner-${num}`, text)
-    console.log(num)
-  }
-  
-  
-  //Display locally stored values
+        var num = btnElement.id.split("-")[1]
+        var text = document.querySelector(`#planner-${num}`).value
+        
+        localStorage.setItem(`#planner-${num}`, text)
+      }
+      
+//Display locally stored values
 
-  function displayText(){
+      function displayText(){
 
-    for (var i = 0; i < timeOfDay.length; i++){
-  
-    document.querySelector(`#planner-${timeOfDay[i]}`).value = localStorage.getItem(`#planner-${timeOfDay[i]}`)
-    console.log(timeOfDay[i])
-    }
-  }
-  displayText()
+        for (var i = 0; i < timeOfDay.length; i++){  
+        document.querySelector(`#planner-${timeOfDay[i]}`).value = localStorage.getItem(`#planner-${timeOfDay[i]}`)
+        }
+      }
+      displayText()
 
-  
-
-
+      
     </script>
-   
-    
+
   </body>
 </html>
