@@ -33,55 +33,55 @@
       <div class="row">
         <div class="col-2">9 am</div>
         <textarea id="planner-9" class="col-9"></textarea>
-        <div class="col-1"><button id="button-9" type="button" onclick="saveText();" class="saveBtn">Save</button></div> 
+        <div class="col-1"><button id="button-9" type="button" onclick="saveText(this);" class="saveBtn">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">10 am</div>
         <textarea id="planner-10" class="col-9"></textarea>
-        <div class="col-1"><button id="button-10"type="button" class="saveBtn">Save</button></div> 
+        <div class="col-1"><button id="button-10"type="button" onclick="saveText(this);" class="saveBtn">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">11 am</div>
         <textarea id="planner-11" class="col-9"></textarea>
-        <div class="col-1"><button id="button-11" type="button" class="saveBtn">Save</button></div> 
+        <div class="col-1"><button id="button-11" type="button" onclick="saveText();" class="saveBtn">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">12 pm</div>
         <textarea id="planner-12" class="col-9"></textarea>
-        <div class="col-1"><button id="button-12" type="button" class="saveBtn">Save</button></div> 
+        <div class="col-1"><button id="button-12" type="button" onclick="saveText();" class="saveBtn">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">1 pm</div>
         <textarea id="planner-13" class="col-9"></textarea>
-        <div class="col-1"><button id="button-13" type="button" class="saveBtn">Save</button></div> 
+        <div class="col-1"><button id="button-13" type="button" onclick="saveText();" class="saveBtn">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">2 pm</div>
         <textarea id="planner-14" class="col-9"></textarea>
-        <div class="col-1"><button id="button-14" type="button" class="saveBtn">Save</button></div> 
+        <div class="col-1"><button id="button-14" type="button" onclick="saveText();" class="saveBtn">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">3 pm</div>
         <textarea id="planner-15" class="col-9"></textarea>
-        <div class="col-1"><button id="button-15" type="button" class="saveBtn">Save</button></div> 
+        <div class="col-1"><button id="button-15" type="button" onclick="saveText();" class="saveBtn">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">4 pm</div>
         <textarea id="planner-16" class="col-9"></textarea>
-        <div class="col-1"><button id="button-16" type="button" class="saveBtn">Save</button></div> 
+        <div class="col-1"><button id="button-16" type="button" onclick="saveText();" class="saveBtn">Save</button></div> 
       </div>
 
       <div class="row">
         <div class="col-2">5 pm</div>
         <textarea id="planner-17" class="col-9"></textarea>
-        <div class="col-1"><button id="button-17" type="button" class="saveBtn">Save</button></div> 
+        <div class="col-1"><button id="button-17" type="button" onclick="saveText();" class="saveBtn">Save</button></div> 
       </div>
 
 
@@ -91,6 +91,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.0/moment.min.js"></script>
     <script>
+
+//Moment js variables
+
       var x = moment()
       var date = moment().format('MMMM Do YYYY')
         
@@ -123,23 +126,25 @@ checkTime()
 
 // Save text to local storage
 
-// loop through addEventListeners (save buttons), compare if textarea id matches clicked button id then save to local storage
+  function saveText(btnElement){
 
-
-
- 
-  function saveText(){
-  
-     
-    var text = document.querySelector("#planner-9").value;
-    localStorage.setItem("#planner-9", text)
+    var num = btnElement.id.split("-")[1]
+    var text = document.querySelector(`#planner-${num}`).value;
+    
+    localStorage.setItem(`#planner-${num}`, text)
+    console.log(num)
   }
   
+  
+  //Display locally stored values
+
   function displayText(){
 
-  //  for (let i = 0; i < timeOfDay.length; i++)
-    document.querySelector("#planner-9").value = localStorage.getItem("#planner-9")
-
+    for (var i = 0; i < timeOfDay.length; i++){
+  
+    document.querySelector(`#planner-${timeOfDay[i]}`).value = localStorage.getItem(`#planner-${timeOfDay[i]}`)
+    console.log(timeOfDay[i])
+    }
   }
   displayText()
 
