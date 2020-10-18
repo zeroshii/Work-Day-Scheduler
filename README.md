@@ -3,7 +3,7 @@ This is a work day scheduling application that saves user input (i.e. events, To
 
 See the deployed application here: [Work Day Scheduler](https://zeroshii.github.io/Work-Day-Scheduler/)
 
-![screenshot](https://github.com/zeroshii/Code-Refactor/blob/master/screenshot.png/)
+![screenshot](https://github.com/zeroshii/Work-Day-Scheduler/blob/master/screenshot.png)
 
 # Technologies Used
 
